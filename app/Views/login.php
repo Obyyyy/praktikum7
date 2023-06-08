@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <div class="container w-50 ">
+    <div class="container w-50 mt-5">
 
         <main class="form-signin w-100 m-auto text-center">
             <form action="<?= base_url('/login') ?>" method="POST">

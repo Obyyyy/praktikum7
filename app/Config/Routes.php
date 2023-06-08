@@ -39,15 +39,19 @@ $routes->setAutoRoute(true);
 // $routes->get('/editdata/(:num)', 'CRUDctrl::edit/$1');
 // $routes->post('/editdata/(:num)', 'CRUDctrl::update/$1');
 
-$routes->get('/login', 'LoginController::index');
+$routes->get('/login', 'LoginController::index', ['filter' => 'loggedIn']);
 $routes->post('/login', 'LoginController::login');
 
-$routes->get('/', 'BukuController::index');
-$routes->get('/tambahdata', 'BukuController::tambah');
-$routes->post('/tambahdata', 'BukuController::simpan');
-$routes->delete('/hapus/(:num)', 'BukuController::hapus/$1');
-$routes->get('/editdata/(:num)', 'BukuController::edit/$1');
-$routes->post('/editdata/(:num)', 'BukuController::update/$1');
+$routes->group('', ['filter' => 'auth'], static function($routes){
+    $routes->get('/', 'BukuController::index');
+    $routes->get('/tambahdata', 'BukuController::tambah');
+    $routes->post('/tambahdata', 'BukuController::simpan');
+    $routes->delete('/hapus/(:num)', 'BukuController::hapus/$1');
+    $routes->get('/editdata/(:num)', 'BukuController::edit/$1');
+    $routes->post('/editdata/(:num)', 'BukuController::update/$1');
+    $routes->get('/logout', 'LoginController::logout');
+});
+
 
 $routes->get('/index2', 'BukuController::index');
 /*

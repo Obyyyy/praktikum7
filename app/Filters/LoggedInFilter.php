@@ -6,7 +6,7 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class LoginFilter implements FilterInterface
+class LoggedInFilter implements FilterInterface
 {
     /**
      * Do whatever processing this filter needs to do.
@@ -25,9 +25,9 @@ class LoginFilter implements FilterInterface
      */
     public function before(RequestInterface $request, $arguments = null)
     {
-        // if (!session()->get('logged_in') == true) {
-        //     return redirect()->to(base_url('/login'));
-        // }
+        if (session()->get("isLoggedIn")) {
+            return redirect()->to(base_url('/'));
+        }
     }
 
     /**
