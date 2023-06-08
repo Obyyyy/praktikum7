@@ -42,7 +42,7 @@ class LoginController extends BaseController
                     ]);
                     return redirect()->to(base_url('/'));
                 }else{
-                    session()->setFlashdata('login', 'Username atau Password salah');
+                    session()->setFlashdata('login', 'Username atau Password sala');
                     return redirect()->to(base_url('/login'));
                 }
             } elseif($dataUsername){
