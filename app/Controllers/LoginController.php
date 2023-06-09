@@ -9,7 +9,7 @@ class LoginController extends BaseController
 {
     public function index()
     {
-        return view('login');
+        return view('/buku/login');
     }
     
     public function login()
