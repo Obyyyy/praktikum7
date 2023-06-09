@@ -14,11 +14,6 @@ class LoginController extends BaseController
     
     public function login()
     {
-        // $data = [
-        //     "username" => $this->request->getPost('username'),
-        //     "email" => $this->request->getPost('email'),
-        //     "password" => $this->request->getPost('password')
-        // ];
         $model = new UserModel();
 
         $usernameEmail = request()->getPost('usernameEmail');
@@ -28,11 +23,6 @@ class LoginController extends BaseController
         $dataEmail = $model->where(["email" => $usernameEmail])->first();
         $dataUsername = $model->where(["username" => $usernameEmail])->first();
         
-        if($dataUsername){
-            $dataUser = $dataEmail;
-        } elseif($dataEmail){
-            $dataUser = $dataUsername;
-        }
         if($dataUsername || $dataEmail){
             if($dataEmail){
                 if( (password_verify($password, $dataEmail['password'])) ){

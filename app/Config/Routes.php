@@ -51,9 +51,6 @@ $routes->group('', ['filter' => 'auth'], static function($routes){
     $routes->post('/editdata/(:num)', 'BukuController::update/$1');
     $routes->get('/logout', 'LoginController::logout');
 });
-
-
-$routes->get('/index2', 'BukuController::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

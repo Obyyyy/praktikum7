@@ -133,8 +133,6 @@ class BukuController extends BaseController
             ]
         ];
 
-        
-
         if(!$this->validate($rules)){
             // return redirect()->back()->withInput();
             $error['validation'] = $this->validator;

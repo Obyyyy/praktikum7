@@ -21,12 +21,13 @@ class AuthFilter implements FilterInterface
      * @param RequestInterface $request
      * @param array|null       $arguments
      *
+     * 
      * @return mixed
      */
     public function before(RequestInterface $request, $arguments = null)
     {
         if (!session()->get("isLoggedIn")) {
-            return redirect()->to(base_url('login'));
+            return redirect()->to(base_url('login'))->with('login', 'Login terlebih dahulu');
         }
     }
 

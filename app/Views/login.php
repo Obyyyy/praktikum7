@@ -17,10 +17,12 @@
         <main class="form-signin w-100 m-auto text-center">
             <form action="<?= base_url('/login') ?>" method="POST">
                 <h1 class="h3 mb-3 fw-normal">CRUD Login</h1>
+
                 <?php if(session()->getFlashdata('login')) : ?>
                 <div class="alert alert-warning" role="alert">
                     <?= session()->getFlashdata('login'); ?>
                 </div>
+                
                 <?php endif; ?>
                 <div class="form-floating">
                     <input name="usernameEmail" type="text" class="form-control" id="floatingInput"
